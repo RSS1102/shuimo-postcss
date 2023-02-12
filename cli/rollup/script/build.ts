@@ -6,21 +6,15 @@
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
-
-import { pathToFileURL } from 'url';
 import * as path from 'path';
 import { OutputOptions, rollup } from 'rollup';
 import { resolvePackage } from './resolvePackage';
 import console from 'console';
 import { resolveRollupConfig } from './resolveRollupConfig';
 import fs from 'fs';
+import { importAbs } from 'common/common';
 
 const pathJoin = (args: Array<string | undefined>) => args.filter(e => e !== undefined).join(path.sep);
-
-const importAbs = async (targetPath: string) => {
-  const fileUrl = pathToFileURL(targetPath).href;
-  return await import(fileUrl);
-}
 
 const getTarget = () => {
   const argv = process.argv;

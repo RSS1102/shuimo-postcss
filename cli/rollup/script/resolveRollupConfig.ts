@@ -7,18 +7,16 @@
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
 import { pathToFileURL } from 'url';
-import * as url from 'url';
 import { RequiredShuimoBuildConfig, ShuimoBuildConfig } from '../index';
 import fs from 'fs';
 import path from 'path';
 import { RollupOptions } from 'rollup';
-
+import { importAbs, __dirname } from '../common/common';
 import rollupResolve from '@rollup/plugin-node-resolve';
 import typescript from '@rollup/plugin-typescript';
 import commonjs from '@rollup/plugin-commonjs';
 import { rollupPostcss, shuimoRollupPostcssConfig } from '../common/rollup.postcss';
 
-const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
 const pathJoin = (args: Array<string | undefined>) => args.filter(e => e !== undefined).join(path.sep);
 const getFilterRoot = (val: string | boolean) => {
   if (val === false) {return undefined;}
@@ -42,12 +40,6 @@ const mergeConfig = (config: RequiredShuimoBuildConfig, userConfig: ShuimoBuildC
   }
   return config;
 };
-
-
-const importAbs = async (targetPath: string) => {
-  const fileUrl = pathToFileURL(targetPath).href;
-  return await import(fileUrl);
-}
 
 export const resolveRollupConfig = async (pkgDir: string, target: string) => {
 
