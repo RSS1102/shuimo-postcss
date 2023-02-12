@@ -1,0 +1,29 @@
+{
+  "name": "@shuimo-design/core",
+  "author": "阿怪",
+  "version": "0.0.1",
+  "type": "module",
+  "files": [
+    "lib",
+    "style",
+    "types"
+  ],
+  "types": "types/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./index.ts",
+      "require": "./index.ts"
+    },
+    "./*": "./*"
+  },
+  "scripts": {
+    "core:test-update": "vitest --update"
+  },
+  "devDependencies": {
+    "@popperjs/core": "^2.11.6",
+    "@shuimo-design/types": "*",
+    "@shuimo-design/jsx": "*",
+    "esbuild": "*",
+    "vitest": "*"
+  }
+}

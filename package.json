@@ -1,0 +1,32 @@
+{
+  "name": "shuimo-design",
+  "description": "一款粗暴的水墨风UI组件",
+  "author": "阿怪 <higuaifan@higuaifan.com>",
+  "license": "MIT",
+  "version": "0.0.1",
+  "scripts": {
+    "pre-dev": "turbo run pre-dev",
+    "dev": "turbo run dev",
+    "playground": "turbo run playground",
+    "dev:doc": "turbo run dev:doc",
+    "dev:web-component-doc": "turbo run web-component-doc:dev",
+    "clean:build": "trubo run clean && rimraf dist",
+    "clean:node_modules": "turbo run clean && rimraf **/node_modules",
+    "re-install": "pnpm run clean:node_modules && pnpm i"
+  },
+  "packageManager": "pnpm@7.17.1",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/janghood/shuimo-ui.git"
+  },
+  "bugs": {
+    "url": "https://github.com/janghood/shuimo-ui/issues"
+  },
+  "homepage": "https://shuimo.janghood.com",
+  "dependencies": {
+    "turbo": "^1.6.3"
+  },
+  "devDependencies": {
+    "rimraf": "^3.0.2"
+  }
+}
